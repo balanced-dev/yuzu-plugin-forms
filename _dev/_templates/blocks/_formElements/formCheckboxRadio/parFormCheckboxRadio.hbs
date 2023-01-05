@@ -1,0 +1,51 @@
+<label class="flex items-start gap-3">
+	<input
+		   type="{{#ifCond type '!==' 'radio'}}checkbox{{else}}radio{{/ifCond}}"
+		   class="sr-only peer"
+		   {{#if id}}id="{{id}}" {{/if}}
+		   {{#if name}}name="{{name}}" {{/if}}
+		   {{#if value}}value="{{value}}" {{/if}}
+		   {{#if isSelected}}checked="checked" {{/if}}
+
+		   {{#if isRequired}}required="required" {{/if}}
+		   {{#if requiredMessage}}data-msg-required="{{requiredMessage}}" {{/if}}
+
+		   {{#if isReadonly}}readonly="readonly" {{/if}}
+		   {{#if isDisabled}}disabled="disabled" {{/if}}
+
+		   {{#ifCond isOneOfSet '&&' checkboxRadioListId}}
+		   data-bouncer-target="#{{checkboxRadioListId}}"
+		   {{else}}
+		   		{{#ifCond type '===' 'checkbox' }}
+		   			data-bouncer-target="#{{#if id}}{{id}}{{else}}{{name}}{{/if}}-errors"
+				{{/ifCond}}
+		   {{/ifCond}}
+
+		   {{#if conditions}}data-conditions='{{toString conditions}}' {{/if}}
+	>
+	<div class="block w-fit border-grey-300 border text-transparent peer-disabled:peer-checked:bg-grey-300 peer-disabled:peer-checked:text-grey-50 peer-checked:bg-theme-600 peer-checked:text-white peer-checked:border-transparent peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-theme-500
+		{{#ifCond type '!==' 'radio'}}
+			rounded
+		{{else}}
+			rounded-full
+		{{/ifCond}}
+	">
+		<svg aria-hidden="true" height="16" width="16">
+			{{#ifCond type '!==' 'radio'}}
+				{{!-- Checkbox --}}
+				<use href="/spritemap.svg#16-solid-check"></use>
+			{{else}}
+				{{!-- Radio --}}
+				<use href="/spritemap.svg#16-solid-dot"></use>
+			{{/ifCond}}
+		</svg>
+	</div>
+	<span class="block text-sm font-medium text-grey-700 peer-disabled:text-grey-400">{{label}}</span>
+
+	{{#ifCond type '===' 'checkbox'}}
+		{{#unless isOneOfSet}}
+			<input type="hidden" name="{{name}}" value="false">
+			<div class="" id="{{#if id}}{{id}}{{else}}{{name}}{{/if}}-errors"></div>
+		{{/unless}}
+	{{/ifCond}}
+</label>

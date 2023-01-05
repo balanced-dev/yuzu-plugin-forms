@@ -1,0 +1,9 @@
+{{#if siteKey}}
+	<script src="https://www.google.com/recaptcha/api.js?render={{siteKey}}"></script>
+	<input type="hidden" id="{{id}}" data-grecaptcha data-grecaptcha-site-id="{{siteKey}}" data-grecaptcha-use-case="{{useCase}}" name="g-recaptcha-response" />
+	<p class="recaptcha-3">
+		This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> apply.
+	</p>
+{{else}}
+	<p>ERROR: ReCaptcha v.3 is missing the Site Key - Please update the web.config to include 'key="RecaptchaSiteKey"'</p>
+{{/if}}

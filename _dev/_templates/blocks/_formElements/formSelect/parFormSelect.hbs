@@ -1,0 +1,28 @@
+<label class="flex flex-col">
+	<div id="{{#if id}}{{id}}{{else}}{{name}}{{/if}}-error" class="order-3"></div>
+	<span class="order-1 block mb-1 text-sm font-medium text-grey-700">{{label}}</span>
+	<div class="relative order-2">
+		<select class="block w-full py-2 pl-3 pr-8 text-base bg-white border border-grey-300 rounded-md shadow-sm peer focus:border-theme-500 focus:ring-theme-500 sm:text-sm error:border-red-300 error:text-red-900 placeholder:text-grey-500 error:placeholder:text-red-300" 
+			{{#if id}}id="{{id}}"{{/if}} 
+			{{#if name}}name="{{name}}"{{/if}} 
+
+			{{#if isRequired}}required="required"{{/if}}
+			{{#if requiredMessage}}data-msg-required="{{requiredMessage}}"{{/if}}
+
+			{{#if isDisabled}}disabled="disabled"{{/if}}
+
+			data-bouncer-target="#{{#if id}}{{id}}{{else}}{{name}}{{/if}}-error"
+			
+			{{#if conditions}}data-conditions='{{toString conditions}}'{{/if}}
+		>
+			{{#each options}}
+				<option class="" {{#ifCond ../isReadonly '||' isDisabled}} disabled="disabled"{{/ifCond}}{{#if isSelected}} selected="selected"{{/if}} value="{{value}}">{{label}}</option>
+			{{/each}}
+		</select>
+		<span class="absolute top-0 bottom-0 flex items-center right-3 text-grey-500 peer-disabled:text-grey-400 peer-[.error]:text-red-500">
+			<svg aria-hidden="true" height="20" width="20">
+				<use href="/spritemap.svg#20-solid-chevron-down"></use>
+			</svg>
+		</span>
+	</div>
+</label>

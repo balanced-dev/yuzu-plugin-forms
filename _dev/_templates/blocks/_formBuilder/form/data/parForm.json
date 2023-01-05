@@ -1,0 +1,156 @@
+{
+    "testForm": {
+        "header": {
+            "$ref": "/parShortformRte"
+        },
+        "isSuccess": false,
+        "validation": {
+            "title": "Validation Error",
+            "message": "<ul><li>Errors are here</li></ul>"
+        },
+        "fieldsets": [
+            {
+                "fields": [
+                    {
+                        "label": "Name",
+                        "placeholder": "Name",
+                        "type": "text",
+                        "name": "name",
+                        "isRequired": true,
+                        "isReadonly": false,
+                        "_ref": "/parFormTextInput"
+                    },
+                    {
+                        "label": "Company",
+                        "placeholder": "Company",
+                        "type": "text",
+                        "name": "company",
+                        "isRequired": true,
+                        "isReadonly": false,
+                        "_ref": "/parFormTextInput"
+                    },
+                    {
+                        "label": "Phone",
+                        "placeholder": "Phone",
+                        "type": "text",
+                        "name": "phone",
+                        "isRequired": true,
+                        "isReadonly": false,
+                        "_ref": "/parFormTextInput"
+                    },
+                    {
+                        "type": "email",
+                        "name": "emailAddress",
+                        "placeholder": "Email",
+                        "label": "Email address",
+                        "value": "",
+                        "isRequired": true,
+                        "pattern": "[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+",
+                        "_ref": "/parFormTextInput"
+                    },
+                    {
+                        "legend": "I would like to have the latest Meptik news delivered to my inbox.",
+                        "isRequired": true,
+                        "elements": [
+                            {
+                                "type": "radio",
+                                "name": "consent",
+                                "label": "Yes",
+                                "value": "true",
+                                "id": "consent-1",
+                                "isRequired": false,
+                                "isSelected": true,
+                                "isDisabled": false,
+                                "isReadonly": false,
+                                "_ref": "/parFormCheckboxRadio"
+                            },
+                            {
+                                "type": "radio",
+                                "name": "consent",
+                                "label": "No",
+                                "value": "false",
+                                "id": "consent-2",
+                                "isRequired": false,
+                                "isSelected": false,
+                                "isDisabled": false,
+                                "isReadonly": false,
+                                "_ref": "/parFormCheckboxRadio"
+                            }
+                        ],
+                        "_ref": "/parFormCheckboxRadioList"
+                    },
+                    {
+                        "legend": "I would like to have the latest Meptik news delivered to my inbox.",
+                        "isRequired": true,
+                        "id": "checkboxes",
+                        "elements": [
+                            {
+                                "type": "checkbox",
+                                "name": "consent",
+                                "label": "Yes",
+                                "value": "true",
+                                "id": "consent-1",
+                                "isRequired": false,
+                                "isSelected": true,
+                                "isDisabled": false,
+                                "isReadonly": false,
+                                "isOneOfSet": true,
+                                "_ref": "/parFormCheckboxRadio"
+                            },
+                            {
+                                "type": "checkbox",
+                                "name": "consent",
+                                "label": "No",
+                                "value": "false",
+                                "id": "consent-2",
+                                "isRequired": false,
+                                "isSelected": false,
+                                "isDisabled": false,
+                                "isReadonly": false,
+                                "isOneOfSet": true,
+                                "_ref": "/parFormCheckboxRadio"
+                            }
+                        ],
+                        "_ref": "/parFormCheckboxRadioList"
+                    },
+                    {
+                        "label": "Position Applying For",
+                        "name": "select",
+                        "id": "select",
+                        "isRequired": true,
+                        "isDisabled": false,
+                        "isReadonly": false,
+                        "options": [
+                            {
+                                "isDisabled": true,
+                                "isSelected": true,
+                                "value": "",
+                                "label": "Position Applying For"
+                            },
+                            {
+                                "value": "1",
+                                "label": "Job 1"
+                            },
+                            {
+                                "value": "2",
+                                "label": "Job 2"
+                            },
+                            {
+                                "value": "3",
+                                "label": "Job 3"
+                            },
+                            {
+                                "value": "4",
+                                "label": "Job 4"
+                            }
+                        ],
+                        "_ref": "/parFormSelect"
+                    }
+                ]
+            }
+        ],
+        "footerText": "<p>By submitting this form you are agreeing to the disclaimer which you are reading at this very moment.</p><p>Find out how we handle your data by reading our <a href=\"#\">Privacy Policy</a> and <a href=\"#\">Terms of Service</a> pages.</p>",
+        "submitButtonText": "Send",
+        "_ref": "/parFormBuilder"
+    }
+}

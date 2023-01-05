@@ -1,0 +1,92 @@
+{
+    "id": "/dataFormBuilder",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "",
+    "type": "object",
+    "additionalProperties": false,
+    "anyOfTypes": [
+        "parFormBuilder"
+    ],
+    "properties": {
+        "header": {
+            "$ref": "/parShortformRte"
+        },
+        "isSuccess": {
+            "type": "boolean"
+        }, 
+        "successMessage": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string",
+                    "textType": "rte"
+                }
+            }
+        },   
+        "validation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string",
+                    "textType": "rte"
+                }
+            }
+        },
+        "fieldsets": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "legend": {
+                        "type": "string"
+                    },
+                    "fields": {
+                        "anyOf": [
+                            {
+                                "$ref": "/parFormBuilderFields"
+                            }
+                        ]
+                    },
+                    "rows": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "columns": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "/parFormBuilderFields"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "footerText": {
+            "type": "string",
+            "textType": "rte"
+        },
+        "submitButtonText": {
+            "type": "string"
+        },
+        "actionLinks": {
+            "type": "array",
+            "items": {
+                "$ref": "/dataLink"
+            }
+        }
+    }
+}

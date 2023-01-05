@@ -1,0 +1,33 @@
+<label class="grid">
+	<input 
+		class="block w-full col-start-1 row-start-2 px-3 py-2 text-base bg-white border rounded-md shadow-sm border-grey-300 focus:border-theme-500 focus:ring-theme-500 sm:text-sm disabled:bg-grey-50 disabled:text-grey-500 error:border-red-300 error:pr-10 error:text-red-900 placeholder:text-grey-500 error:placeholder:text-red-400 peer"
+		type="text" type="{{#if type}}{{type}}{{else}}text{{/if}}" 
+		autocomplete="{{#if autocomplete}}{{autocomplete}}{{else}}on{{/if}}"
+		{{#if id}}id="{{id}}" {{/if}}
+		{{#if name}}name="{{name}}" {{/if}}
+		{{#if placeholder}}placeholder="{{placeholder}}"{{/if}} 
+		{{#if value}}value="{{value}}"{{/if}}
+
+		{{#if isRequired}}required="required"{{/if}}
+		{{#if requiredMessage}}data-msg-required="{{requiredMessage}}"{{/if}}
+
+		{{#if pattern}}pattern="{{pattern}}"{{/if}}
+		{{#if patternMessage}}data-msg-regex="{{patternMessage}}"{{/if}}
+
+		{{#if isReadonly}}readonly="readonly"{{/if}}
+		{{#if isDisabled}}disabled="disabled"{{/if}}
+
+		{{#if min}}min="{{min}}"{{/if}}
+		{{#if max}}max="{{max}}"{{/if}}
+		{{#if minlength}}minlength="{{minlength}}"{{/if}}
+		{{#if maxlength}}maxlength="{{maxlength}}"{{/if}}
+
+		{{#if conditions}}data-conditions='{{toString conditions}}'{{/if}} 
+	>
+	<div class="items-center justify-end hidden col-start-1 row-start-2 pr-3 pointer-events-none peer-[.error]:flex">
+		<svg class="text-red-500" aria-hidden="true" height="24" width="24">
+			<use href="/spritemap.svg#24-solid-exclamation-circle"></use>
+		</svg>
+	</div>
+	<span class="{{#unless hide-input-label}}block row-start-1 mb-1 text-sm font-medium text-grey-700{{else}}sr-only{{/unless}}">{{label}}</span>
+</label>

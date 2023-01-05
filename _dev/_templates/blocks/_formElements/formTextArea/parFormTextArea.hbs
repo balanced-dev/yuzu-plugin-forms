@@ -1,0 +1,20 @@
+<label class="flex flex-col">
+	<textarea 
+		class="block w-full px-3 py-2 text-base bg-white border rounded-md shadow-sm border-grey-300 focus:border-theme-500 focus:ring-theme-500 sm:text-sm disabled:bg-grey-50 disabled:text-grey-500 error:border-red-300 error:text-red-900 placeholder:text-grey-500 error:placeholder:text-red-400"
+		{{#if name}}name="{{name}}"{{/if}}
+		{{#if id}}id="{{id}}"{{/if}}
+		{{#if placeholder}}placeholder="{{placeholder}}"{{/if}} 
+
+		{{#if isRequired}}required="required"{{/if}}
+		{{#if requiredMessage}}data-msg-required="{{requiredMessage}}"{{/if}}
+		
+		{{#if isReadonly}}readonly="readonly"{{/if}}
+		{{#if isDisabled}}disabled="disabled"{{/if}}
+
+		{{#if minlength}}minlength="{{minlength}}"{{/if}}
+		{{#if maxlength}}maxlength="{{maxlength}}"{{/if}}
+		
+		{{#if conditions}}data-conditions='{{toString conditions}}'{{/if}}
+	>{{value}}</textarea>
+	<span class="block mb-1 text-sm font-medium text-grey-700 -order-1">{{label}}</span>
+</label>

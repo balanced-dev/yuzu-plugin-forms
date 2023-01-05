@@ -1,0 +1,88 @@
+<div class="space-y-14">
+    {{#if header}}
+        <div class="">
+            {{> parShortformRte header}}
+        </div>
+    {{/if}}
+    {{#if isSuccess}}
+        {{#if successMessage.message}}
+            <div class="flex gap-3 p-4 rounded-sm bg-green-50">
+                <svg class="text-green-600" aria-hidden="true" height="20" width="20">
+                    <use href="/spritemap.svg#20-solid-check-circle"></use>
+                </svg>
+                <div class="space-y-2 text-sm">
+                    {{#if successMessage.title}}
+                        <h3 class="font-medium text-green-900">{{successMessage.title}}</h3>
+                    {{/if}}
+                    <div class="prose-sm prose text-green-700 marker:text-green-500">
+                        {{{successMessage.message}}}
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    {{else}}
+        {{#if validation.message}}
+            <div class="flex gap-3 p-4 rounded-sm bg-red-50">
+                <svg class="text-red-400" aria-hidden="true" height="20" width="20">
+                    <use href="/spritemap.svg#20-solid-x-circle"></use>
+                </svg>
+                <div class="space-y-2 text-sm">
+                    {{#if validation.title}}
+                        <h3 class="font-medium text-red-900">{{validation.title}}</h3>
+                    {{/if}}
+                    <div class="prose-sm prose text-red-700 marker:text-red-400">
+                        {{{validation.message}}}
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+        <div class="space-y-6">
+            {{#each fieldsets}}
+                <fieldset class="space-y-6">
+                    {{#if legend}}
+                        <legend class="">{{legend}}</legend>
+                    {{/if}}
+                    {{#each fields}}
+                        {{#if _ref }}
+                            <div class="space-y-6" data-field>
+                                {{{ modPartial _ref this 'form' }}}
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                    {{#if rows.[0]}}
+                        <div class="space-y-6">
+                            {{#each rows}}
+                                <div class="grid grid-cols-[repeat(auto-fit,_minmax(min(150px,_100%),_1fr))]" data-field>
+                                    {{#each columns}}
+                                        <div class="">
+                                            {{{ modPartial _ref this 'form' }}}
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                </fieldset>
+            {{/each}}
+            <div class="">
+                {{~#if submitButtonText}}
+                    <button class="inline-flex items-center justify-center gap-2 px-5 py-3 text-base font-medium text-white border border-transparent rounded-md shadow bg-theme-600 hover:bg-theme-700" type="submit">
+                        {{submitButtonText}}
+                    </button>
+                    {{/if~}}
+                    {{~#if actionLinks.[0]}}
+                        <div class="">
+                            {{#each actionLinks}}
+                                <a class="" href="{{href}}" title="{{title}}">{{label}}</a>
+                            {{/each}}
+                        </div>
+                        {{/if~}}
+            </div>
+            {{~#if footerText}}
+                <div class="prose-sm prose text-grey-400 prose-a:text-grey-500 hover:prose-a:text-grey-600">
+                    {{{footerText}}}
+                </div>
+                {{/if~}}
+        </div>
+    {{/if}}
+</div>

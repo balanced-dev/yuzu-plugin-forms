@@ -1,0 +1,13 @@
+{
+    "name": "cv",
+    "label": "Upload your CV",
+    "value": "",
+    "id": "",
+    "placeholder": "Click upload to locate your file",
+    "buttonText": "Upload",
+    "acceptedFileTypes": ".pdf,.doc,.docx,.svg",
+    "isMultipleAllowed": false,
+    "isRequired": true,
+    "isDisabled": false,
+    "isReadonly": false
+}

@@ -1,0 +1,13 @@
+.recaptcha-3 { 
+    @include light-font;
+    @include font-size($font-size-xxxsmall);
+    color: $colour-grey-600;
+
+    a {
+        text-underline-position: under;
+    }
+}
+
+.grecaptcha-badge { 
+    visibility: hidden;
+}

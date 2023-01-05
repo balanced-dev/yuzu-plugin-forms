@@ -1,0 +1,13 @@
+<fieldset class="space-y-3"{{#if isRequired}} data-required-set{{/if}}{{#if requiredMessage}} data-msg-required-set="{{requiredMessage}}"{{/if}} {{#if conditions}}data-conditions='{{toString conditions}}'{{/if}}>
+	{{#if legend}}
+		<legend class="text-base font-medium text-grey-900">{{legend}}</legend>
+	{{/if}}
+	<div class="flex flex-col gap-4">
+		{{#each elements}}
+			{{{ modPartial 'parFormCheckboxRadio' this ../_modifiers.[0] }}}
+		{{/each}}
+	</div>
+	{{#if id}}
+		<div id="{{id}}"></div>
+	{{/if}}
+</fieldset>

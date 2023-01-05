@@ -1,0 +1,10 @@
+{
+    "testForm": {
+        "isSuccess": true,
+        "successMessage": {
+            "title":"Thank you for your enquiry",
+            "message":"<p>We will respond within 24 hours</p>"
+        },
+        "_ref": "/parFormBuilder"
+    }
+}

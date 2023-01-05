@@ -1,0 +1,34 @@
+<label class="{{_modifiers.[0]}}__file-input" data-controller="file-input">
+	<input
+		class="{{_modifiers.[0]}}__file-input__control" 
+		type="file"
+		data-target="file-input.input"
+		{{#if id}}id="{{id}}" {{/if}}
+		{{#if name}}name="{{name}}" {{/if}}
+		{{#if value}}value="{{value}}"{{/if}}
+
+		{{#if acceptedFileTypes}}accept="{{acceptedFileTypes}}"{{/if}}
+		{{#if isMultipleAllowed}}multiple="multiple"{{/if}}
+
+		{{#if isRequired}}required="required"{{/if}}
+		{{#if requiredMessage}}data-msg-required="{{requiredMessage}}"{{/if}}
+
+		{{#if isReadonly}}readonly="readonly"{{/if}}
+		{{#if isDisabled}}disabled="disabled"{{/if}}
+
+		{{#if conditions}}data-conditions='{{toString conditions}}'{{/if}}
+	>
+	<span class="{{_modifiers.[0]}}__file-input__label">{{label}}</span>
+	<div class="{{_modifiers.[0]}}__file-input__faux">
+		{{#if placeholder}}<span class="{{_modifiers.[0]}}__file-input__faux__placeholder">{{placeholder}}</span>{{/if}}
+		<span class="{{_modifiers.[0]}}__file-input__faux__selected-files" data-target="file-input.selected"></span>
+		{{#if buttonText}}
+			<span class="{{_modifiers.[0]}}__file-input__faux__button">
+				<svg aria-hidden="true">
+					<use xlink:href="/spritemap.svg#arrow--stroke"></use>
+				</svg>
+				{{buttonText}}
+			</span>
+		{{/if}}
+	</div>
+</label>
