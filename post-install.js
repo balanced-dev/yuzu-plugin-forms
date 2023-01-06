@@ -3,7 +3,7 @@ const path = require('path');
 const files = [ 
     {
         source: './_dev/_templates/blocks/_formBuilder/formBuilder/parFormBuilderFields.schema',
-        dest: '../../_dev/_templates/blocks/_forms/_formBuilder/parFormBuilderFields.schema',
+        dest: '../../_dev/_templates/blocks/_forms/_formBuilder/_formBuilder/parFormBuilderFields.schema',
     }
 ];
 
