@@ -14,6 +14,10 @@ files.forEach((file) => {
         let destPath = path.dirname(file.dest);
         if(fs.existsSync(destPath) && fs.existsSync(file.dest)) {
             console.log(`${file.dest} already installed, not overwriting`);
+            //we have to delete files that have been overwritten in the child site, otherwise we get nasty clashes
+            if(fs.existsSync(file.source)) {
+                fs.rmSync(file.source);
+            }
         }
         else if(!fs.existsSync(file.source))  {
             console.log(`${file.source}, source doesn't exist`);
