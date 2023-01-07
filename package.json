@@ -1,6 +1,6 @@
 {
   "name": "yuzu-plugin-forms",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "dependencies": {
     "formbouncerjs": "^1.4.6",
     "stimulus": "^1.1.1",
-    "yuzu-plugin-core": "^1.0.1"
+    "yuzu-plugin-core": "^1.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
