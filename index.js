@@ -1,4 +1,7 @@
+const formState = require('./_dev/_source/js/form-state');
+
 module.exports = {
+    formState: formState,
     initScripts: () => {
         return require.context('./_dev/_source/js/controllers', true, /\.js$/);
     },
