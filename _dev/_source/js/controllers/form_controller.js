@@ -2,6 +2,7 @@ import { Controller } from "stimulus";
 import Bouncer from 'formbouncerjs';
 import conditions from './form_conditions';
 import { utils } from "yuzu-plugin-core";
+import formState from '../form-state';
 
 var bouncerJS = new Bouncer('form', {
     customValidations: {
@@ -121,10 +122,12 @@ export default class extends Controller {
 
                     if (!this.isFrontend()) {
                         let formData = this.getFormData();
+                        let headers = formState.getHeaders();
+                        headers['yuzu-form'] = 'true';
                         formRequestInfo = { 
                             method: 'POST', 
                             body: formData,
-                            headers: { 'yuzu-form': 'true' },
+                            headers: headers,
                         };
                         formUrl = this.formAction;
                         if (!formUrl.endsWith(this.settings.formUrl)){
