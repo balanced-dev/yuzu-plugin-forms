@@ -124,20 +124,25 @@ export default class extends Controller {
                         let formData = this.getFormData();
                         let headers = formState.getHeaders();
                         headers['yuzu-form'] = 'true';
+                        if(this.settings.formId) {
+                            headers['yuzu-form-id'] = this.settings.formId;
+                        }
                         formRequestInfo = { 
                             method: 'POST', 
                             body: formData,
                             headers: headers,
                         };
                         formUrl = this.formAction;
-                        if (!formUrl.endsWith(this.settings.formUrl)){
-                            if(this.settings.formUrl.startsWith('?')) {
-                                formUrl = formUrl + this.settings.formUrl;
+                        if(this.settings.formUrl) {
+                            if (!formUrl.endsWith(this.settings.formUrl)){
+                                if(this.settings.formUrl.startsWith('?')) {
+                                    formUrl = formUrl + this.settings.formUrl;
+                                }
+                                else {
+                                    formUrl = this.settings.formUrl;
+                                }
                             }
-                            else {
-                                formUrl = this.settings.formUrl;
-                            }
-                        }
+                        }                       
                     }
 
                     this.sendRequest(this.getForm(), formUrl, formRequestInfo)
